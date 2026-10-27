@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Never listed. The system Settings apps are covered by the "settings" control. -->
+    <string-array name="hidden_apps">
+        <item>com.android.tv.settings</item>
+        <item>com.google.android.tv.settings</item>
+        <item>com.amazon.tv.settings.v2</item>
+        <item>com.amazon.smarthomemapviewapp</item>
+        <item>com.amazon.whasettings</item>
+        <item>com.amazon.tv.earlyaccess</item>
+        <item>com.amazon.firetv.troubleshooting</item>
+    </string-array>
+</resources>

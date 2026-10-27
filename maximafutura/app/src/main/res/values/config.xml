@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Never shown. -->
+    <string-array name="hidden_apps">
+        <item>com.amazon.smarthomemapviewapp</item>
+        <item>com.amazon.whasettings</item>
+        <item>com.amazon.tv.earlyaccess</item>
+        <item>com.amazon.firetv.troubleshooting</item>
+    </string-array>
+</resources>

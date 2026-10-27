@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FF020604">
+
+    <com.akhilmulpuri.maximafutura.MatrixRain
+        android:id="@+id/rain"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- Clock plate; drifts a little each minute. -->
+    <LinearLayout
+        android:id="@+id/plate"
+        android:layout_width="360dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextClock
+            style="@style/Ox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontVariationSettings="'wght' 200"
+            android:format12Hour="h:mm"
+            android:format24Hour="HH:mm"
+            android:textColor="@color/text"
+            android:textSize="84sp" />
+
+        <TextView
+            android:id="@+id/dreamDate"
+            style="@style/Label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:letterSpacing="0.3" />
+    </LinearLayout>
+</FrameLayout>

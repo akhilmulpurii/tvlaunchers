@@ -1,0 +1,56 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.akhilmulpuri.zunesthetic'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId 'com.akhilmulpuri.zunesthetic'
+        minSdk 26
+        targetSdk 34
+        versionCode 1
+        versionName '0.1'
+    }
+
+    // Dev key (signing/zunesthetic.jks, git-ignored) so debug builds install over each other.
+    // Release key: ../keystores/ (git-ignored), see the root README. Falls back to the dev key.
+    def rel = new Properties()
+    def relFile = rootProject.file('../keystores/keystore.properties')
+    if (relFile.exists()) relFile.withInputStream { rel.load(it) }
+    def zKey = rootProject.file('signing/zunesthetic.jks')
+    signingConfigs {
+        zune {
+            storeFile zKey
+            storePassword 'android'
+            keyAlias "zune"
+            keyPassword 'android'
+        }
+        if (rel.getProperty('zunesthetic.password')) {
+            release {
+                storeFile rootProject.file('../keystores/' + rel.getProperty('zunesthetic.storeFile'))
+                storePassword rel.getProperty('zunesthetic.password')
+                keyAlias rel.getProperty('zunesthetic.alias')
+                keyPassword rel.getProperty('zunesthetic.password')
+            }
+        }
+    }
+
+    buildTypes {
+        debug {
+            if (zKey.exists()) signingConfig signingConfigs.zune
+        }
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.findByName('release') ?: (zKey.exists() ? signingConfigs.zune : signingConfigs.debug)
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}

@@ -1,0 +1,24 @@
+# Release keys and their passwords: never commit, back up separately.
+keystores/
+
+# Dev keys, per launcher
+*/signing/
+
+# Build output (release APKs are kept in dist/)
+.gradle/
+*/.gradle/
+build/
+*/build/
+*/app/build/
+local.properties
+
+# Relay queue and screenshots
+.relay/
+*/.relay/
+*/shots/
+
+# Design sources
+zunesthetic/zune-bg.png
+zunesthetic/tv-mockup.zip
+
+.DS_Store

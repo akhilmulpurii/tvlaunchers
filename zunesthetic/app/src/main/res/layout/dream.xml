@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/dreamPhoto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:scaleX="1.04"
+        android:scaleY="1.04"
+        android:src="@drawable/bg" />
+
+    <!-- Giant faint words, Zune now-playing style. -->
+    <TextView
+        android:id="@+id/wordBig"
+        style="@style/Light"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:alpha="0.13"
+        android:textSize="230sp" />
+
+    <TextView
+        android:id="@+id/wordSmall"
+        style="@style/Light"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="290dp"
+        android:alpha="0.07"
+        android:textSize="120sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="260dp"
+        android:layout_gravity="bottom"
+        android:background="@drawable/fade_bottom" />
+
+    <!-- Lock-screen clock, bottom left. -->
+    <LinearLayout
+        android:id="@+id/dreamClock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|start"
+        android:layout_marginStart="64dp"
+        android:layout_marginBottom="48dp"
+        android:orientation="vertical">
+
+        <TextClock
+            style="@style/Light"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:format12Hour="h:mm"
+            android:format24Hour="HH:mm"
+            android:textSize="110sp" />
+
+        <TextView
+            android:id="@+id/dreamDate"
+            style="@style/Light"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:textColor="#CCFFFFFF"
+            android:textSize="26sp" />
+    </LinearLayout>
+</FrameLayout>

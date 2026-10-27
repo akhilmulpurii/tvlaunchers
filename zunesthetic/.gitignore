@@ -1,0 +1,12 @@
+.gradle/
+build/
+app/build/
+local.properties
+signing/
+.relay/
+shots/
+.DS_Store
+
+# design sources
+tv-mockup.zip
+zune-bg.png

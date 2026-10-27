@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Darkens the left side so the list reads on any wallpaper. -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <gradient
+        android:angle="0"
+        android:startColor="#B3000000"
+        android:centerColor="#4D000000"
+        android:centerX="0.45"
+        android:endColor="#00000000" />
+</shape>

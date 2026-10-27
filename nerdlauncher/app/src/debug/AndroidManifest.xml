@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <application>
+        <!-- adb shell am start -n com.akhilmulpuri.nerdlauncher/.DreamPreviewActivity -->
+        <activity
+            android:name=".DreamPreviewActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Nerd" />
+    </application>
+</manifest>

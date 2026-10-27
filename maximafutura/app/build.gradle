@@ -1,0 +1,56 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.akhilmulpuri.maximafutura'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId 'com.akhilmulpuri.maximafutura'
+        minSdk 26
+        targetSdk 34
+        versionCode 1
+        versionName '0.1'
+    }
+
+    // Dev key (signing/maximafutura.jks, git-ignored) so debug builds install over each other.
+    // Release key: ../keystores/ (git-ignored), see the root README. Falls back to the dev key.
+    def rel = new Properties()
+    def relFile = rootProject.file('../keystores/keystore.properties')
+    if (relFile.exists()) relFile.withInputStream { rel.load(it) }
+    def mfKey = rootProject.file('signing/maximafutura.jks')
+    signingConfigs {
+        mf {
+            storeFile mfKey
+            storePassword 'android'
+            keyAlias "mf"
+            keyPassword 'android'
+        }
+        if (rel.getProperty('maximafutura.password')) {
+            release {
+                storeFile rootProject.file('../keystores/' + rel.getProperty('maximafutura.storeFile'))
+                storePassword rel.getProperty('maximafutura.password')
+                keyAlias rel.getProperty('maximafutura.alias')
+                keyPassword rel.getProperty('maximafutura.password')
+            }
+        }
+    }
+
+    buildTypes {
+        debug {
+            if (mfKey.exists()) signingConfig signingConfigs.mf
+        }
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.findByName('release') ?: (mfKey.exists() ? signingConfigs.mf : signingConfigs.debug)
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Zunesthetic</string>
+    <string name="dream_name">Zunesthetic</string>
+
+    <color name="bg">#FF0B0B0C</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="control">#FFB4BABF</color>
+
+    <style name="Theme.Zune" parent="@android:style/Theme.DeviceDefault.NoActionBar">
+        <item name="android:windowBackground">@color/bg</item>
+        <item name="android:colorBackground">@color/bg</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
+    <style name="Light" parent="">
+        <item name="android:fontFamily">@font/selawik_light</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="Caption" parent="">
+        <item name="android:fontFamily">@font/selawik_light</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">#B3FFFFFF</item>
+    </style>
+</resources>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg">
+
+    <!-- Everything moves together a little each minute (burn-in protection). -->
+    <LinearLayout
+        android:id="@+id/block"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/badge"
+            style="@style/Nerd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/yellow"
+            android:letterSpacing="0.1"
+            android:paddingStart="8dp"
+            android:paddingTop="5dp"
+            android:paddingEnd="8dp"
+            android:paddingBottom="5dp"
+            android:textColor="#FF141414"
+            android:textSize="14sp" />
+
+        <TextClock
+            android:id="@+id/clock"
+            style="@style/Nerd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:format12Hour="h:mm"
+            android:format24Hour="HH:mm"
+            android:textColor="@color/text"
+            android:textSize="150sp" />
+
+        <TextView
+            android:id="@+id/date"
+            style="@style/Nerd.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/mid"
+            android:textSize="18sp" />
+
+        <View
+            android:layout_width="420dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="22dp"
+            android:background="@color/line" />
+
+        <TextView
+            android:id="@+id/info"
+            style="@style/Nerd.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp" />
+    </LinearLayout>
+
+    <TextView
+        style="@style/Nerd.Small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|start"
+        android:layout_marginStart="48dp"
+        android:layout_marginBottom="36dp"
+        android:text="NERD_OS"
+        android:textColor="@color/dim" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="48dp"
+        android:layout_marginBottom="36dp"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/Nerd.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="&gt; PRESS ANY KEY"
+            android:textColor="@color/dim" />
+
+        <TextView
+            android:id="@+id/cursor"
+            style="@style/Nerd.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="_"
+            android:textColor="@color/yellow" />
+    </LinearLayout>
+</FrameLayout>

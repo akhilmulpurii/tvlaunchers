@@ -1,0 +1,56 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.akhilmulpuri.nerdlauncher'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId 'com.akhilmulpuri.nerdlauncher'
+        minSdk 26
+        targetSdk 34
+        versionCode 1
+        versionName '0.1'
+    }
+
+    // Dev key (signing/nerd.jks, git-ignored) so debug builds install over each other.
+    // Release key: ../keystores/ (git-ignored), see the root README. Falls back to the dev key.
+    def rel = new Properties()
+    def relFile = rootProject.file('../keystores/keystore.properties')
+    if (relFile.exists()) relFile.withInputStream { rel.load(it) }
+    def nerdKey = rootProject.file('signing/nerd.jks')
+    signingConfigs {
+        nerd {
+            storeFile nerdKey
+            storePassword 'android'
+            keyAlias 'nerd'
+            keyPassword 'android'
+        }
+        if (rel.getProperty('nerdlauncher.password')) {
+            release {
+                storeFile rootProject.file('../keystores/' + rel.getProperty('nerdlauncher.storeFile'))
+                storePassword rel.getProperty('nerdlauncher.password')
+                keyAlias rel.getProperty('nerdlauncher.alias')
+                keyPassword rel.getProperty('nerdlauncher.password')
+            }
+        }
+    }
+
+    buildTypes {
+        debug {
+            if (nerdKey.exists()) signingConfig signingConfigs.nerd
+        }
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.findByName('release') ?: (nerdKey.exists() ? signingConfigs.nerd : signingConfigs.debug)
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
