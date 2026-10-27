@@ -3,22 +3,53 @@
 Three lightweight Android TV home screens, each a standalone Gradle project with no dependencies.
 Built and tested on a Chromecast with Google TV (Google TV 14); they also run as normal apps on Fire TV.
 
-| Launcher | Package | Look | Screensaver |
-|---|---|---|---|
-| [Nerd Launcher](nerdlauncher/) | `com.akhilmulpuri.nerdlauncher` | Text-only instrument dashboard, Nerd Font, per-app colours | Clock and readouts with a blinking cursor |
-| [Maxima Futura](maximafutura/) | `com.akhilmulpuri.maximafutura` | Minimal frosted green HUD, hex tabs, text tiles | cmatrix-style digital rain |
-| [Zunesthetic](zunesthetic/) | `com.akhilmulpuri.zunesthetic` | Zune / Windows Phone vertical list over a wallpaper | Drifting wallpaper, giant day and month, lock-screen clock |
+## Nerd Launcher
 
-All three: apps A-Z by default; **hold OK on an app** to move it or uninstall it, and the order is kept.
+A text-only instrument dashboard in a Nerd Font, with per-app colours. Screensaver: the clock and readouts
+with a blinking cursor. [Details](nerdlauncher/)
 
-## Download
+![Nerd Launcher](screenshots/web/nerd.jpg)
 
-Signed release APKs are in [`dist/`](dist/), one universal APK per launcher (no native code, so the same
-APK runs on arm, arm64 and x86 TVs). Checksums in `dist/SHA256SUMS`.
+**[Download nerdlauncher-0.1-universal.apk](https://github.com/akhilmulpurii/tvlaunchers/raw/main/dist/nerdlauncher-0.1-universal.apk)** · `com.akhilmulpuri.nerdlauncher` · 68 KB
+
+## Maxima Futura
+
+A minimal frosted green HUD with hex tabs and text tiles. Screensaver: cmatrix-style digital rain behind a
+frosted clock. [Details](maximafutura/)
+
+![Maxima Futura](screenshots/web/futura.jpg)
+![Maxima Futura screensaver](screenshots/web/futura-screensaver.jpg)
+
+**[Download maximafutura-0.1-universal.apk](https://github.com/akhilmulpurii/tvlaunchers/raw/main/dist/maximafutura-0.1-universal.apk)** · `com.akhilmulpuri.maximafutura` · 85 KB
+
+## Zunesthetic
+
+A Zune / Windows Phone style vertical list over a wallpaper. Screensaver: the wallpaper drifting, the day and
+month in huge faint type, and a lock-screen clock. [Details](zunesthetic/)
+
+![Zunesthetic](screenshots/web/zune.jpg)
+
+**[Download zunesthetic-0.1-universal.apk](https://github.com/akhilmulpurii/tvlaunchers/raw/main/dist/zunesthetic-0.1-universal.apk)** · `com.akhilmulpuri.zunesthetic` · 290 KB
+
+## All three
+
+- Apps A-Z by default; **hold OK on an app** to move it or uninstall it, and the order is kept.
+- No dependencies, no internet permission, nothing running in the background.
+- One universal APK each: no native code, so the same APK runs on arm, arm64 and x86 TVs.
+  Checksums: [`dist/SHA256SUMS`](dist/SHA256SUMS).
+
+## Install
+
+From a computer, with ADB debugging on the TV:
 
 ```bash
-adb install -r dist/nerdlauncher-0.1-universal.apk
+adb connect <tv-ip>
+adb install -r nerdlauncher-0.1-universal.apk
 ```
+
+On the TV itself: open the download link in a TV browser or a downloader app, then install the APK
+(allow "install unknown apps" for that app when asked). Each launcher shows up as a normal app; see its
+README to make it the Home screen and to pick its screensaver.
 
 ## Layout
 
@@ -26,6 +57,7 @@ adb install -r dist/nerdlauncher-0.1-universal.apk
 nerdlauncher/  maximafutura/  zunesthetic/   one Gradle project each (own README)
 tools/         build, release, keystore and relay scripts shared by all three
 dist/          release APKs
+screenshots/   originals; web/ has the resized copies the README uses
 keystores/     release keys and passwords (git-ignored, back up separately)
 ```
 

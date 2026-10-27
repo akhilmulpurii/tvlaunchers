@@ -1,5 +1,7 @@
 # Nerd Launcher
 
+![screenshot](../screenshots/web/nerd.jpg)
+
 A text-only Android TV home screen in the style of an instrument dashboard: one monospace Nerd Font, no images,
 no graphics. Package `com.akhilmulpuri.nerdlauncher`, `minSdk` 26, no network permission, no dependencies.
 Release APK is about 65 KB.

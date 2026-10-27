@@ -1,5 +1,7 @@
 # Zunesthetic
 
+![screenshot](../screenshots/web/zune.jpg)
+
 A Zune / Windows Phone style Android TV home screen: one huge lowercase vertical list over a wallpaper, no icons.
 Package `com.akhilmulpuri.zunesthetic`, `minSdk` 26, no network permission, no dependencies.
 

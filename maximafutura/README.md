@@ -1,5 +1,7 @@
 # Maxima Futura
 
+![screenshot](../screenshots/web/futura.jpg)
+
 A minimal HUD-style Android TV home screen: dark matrix green, frosted hex shapes, one typeface. Package
 `com.akhilmulpuri.maximafutura`, `minSdk` 26, no network permission, no dependencies.
 
